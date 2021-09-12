@@ -15,7 +15,15 @@ fork from [patrickhoefler/cloudbuildgraph: Visualize your Google Cloud Build pip
 
 ### Installation and Usage
 
-Running `cloudbuildgraph` will create a `cloudbuild.pdf` file in your current working directory that contains a visual graph representation of your Cloud Build pipeline.
+Running `cloudbuildgraph` will create a `cloudbuild.pdf(png/jpeg/svg)` file in your current working directory that contains a visual graph representation of your Cloud Build pipeline.
+
+Install
+
+```shell
+go install github.com/lirlia/cloudbuildgraph@latest
+```
+
+Usage 
 
 ```shell
   -config string
