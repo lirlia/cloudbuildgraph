@@ -1,7 +1,11 @@
-### Release image
-FROM ubuntu:latest@sha256:9d6a8699fb5c9c39cf08a0871bd6219f0400981c570894cd8cbea30d3424a31f
+FROM golang AS build-env
+COPY . /go-src/
+WORKDIR /go-src/
+RUN go build -o /cloudbuildgraph .
 
-LABEL org.opencontainers.image.source="https://github.com/patrickhoefler/cloudbuildgraph"
+FROM ubuntu:latest
+
+LABEL org.opencontainers.image.source="https://github.com/lirlia/cloudbuildgraph"
 
 RUN \
   # Install Graphviz
@@ -18,8 +22,6 @@ RUN \
 # Run as non-root user
 USER app
 
-# This currently only works with goreleaser
-# or if you manually copy the binary into the main project directory
-COPY cloudbuildgraph /
+COPY --from=build-env /cloudbuildgraph /
 
 ENTRYPOINT ["/cloudbuildgraph"]

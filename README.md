@@ -12,6 +12,7 @@ fork from [patrickhoefler/cloudbuildgraph: Visualize your Google Cloud Build pip
 ### Prerequisites
 
 - [Google Cloud Build config](https://cloud.google.com/cloud-build/docs/build-config) file in your current working directory
+- Graphbiz
 
 ### Installation and Usage
 
@@ -31,6 +32,18 @@ Usage
   -type string
         output type (jpeg/pdf/png/svg) (default "pdf")
 ```
+
+#### Docker
+
+```shell
+docker build -t cloudbuildgraph:latest .
+docker run \
+  --rm \
+  --workdir /workspace \
+  --mount type=bind,source="$(pwd)",target=/workspace \
+  cloudbuildgraph:latest -config example/cloudbuild.yaml
+```
+
 #### Build from Source
 
 ```shell
