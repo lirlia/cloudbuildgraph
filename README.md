@@ -21,7 +21,7 @@ Running `cloudbuildgraph` will create a `cloudbuild.pdf` file in your current wo
   -config string
         cloudbuild config name (default "cloudbuild.yaml")
   -type string
-        output type (jpeg/pdf/png/svg (default "pdf")
+        output type (jpeg/pdf/png/svg) (default "pdf")
 ```
 #### Build from Source
 
