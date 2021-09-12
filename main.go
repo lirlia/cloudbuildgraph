@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -13,7 +14,12 @@ import (
 func main() {
 	log.SetFlags(0)
 
-	cloudBuildConfig, err := cloudbuild2dot.LoadCloudBuildConfig()
+	var (
+		filename = flag.String("config", "cloudbuild.yaml", "cloudbuild config name")
+	)
+	flag.Parse()
+
+	cloudBuildConfig, err := cloudbuild2dot.LoadCloudBuildConfig(*filename)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -34,11 +40,11 @@ func main() {
 		log.Fatal(err)
 	}
 
-	cmd := exec.Command("dot", "-Tpdf", "-ocloudbuild.pdf", dotFile.Name())
+	cmd := exec.Command("dot", "-Tpdf", fmt.Sprintf("-o%s.pdf", *filename), dotFile.Name())
 	err = cmd.Run()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Successfully created cloudbuild.pdf")
+	fmt.Sprintln("Successfully created %t.pdf", *filename)
 }
