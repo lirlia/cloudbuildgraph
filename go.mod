@@ -1,4 +1,4 @@
-module github.com/patrickhoefler/cloudbuildgraph
+module github.com/lirlia/cloudbuildgraph
 
 go 1.17
 
