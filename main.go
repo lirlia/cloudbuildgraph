@@ -9,7 +9,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/patrickhoefler/cloudbuildgraph/internal/cloudbuild2dot"
+	"github.com/lirlia/cloudbuildgraph/internal/cloudbuild2dot"
 )
 
 func main() {

@@ -32,4 +32,4 @@ go build
 
 ## License
 
-[MIT](https://github.com/patrickhoefler/cloudbuildgraph/blob/main/LICENSE)
+[MIT](https://github.com/lirlia/cloudbuildgraph/blob/main/LICENSE)
